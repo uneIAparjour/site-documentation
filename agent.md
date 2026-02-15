@@ -1,4 +1,4 @@
-# Agent.md — uneiaparjour.fr
+# Agent.md — uneIAparjour.fr
 
 ## Identité du projet
 
@@ -17,22 +17,22 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 ## Principes éditoriaux
 
 ### Accessibilité et simplicité
-- Outils gratuits ou freemium avec crédits suffisants pour des tests à moyen terme, sans période d'essai restrictive
-- Inscription facilitée : pas de numéro de téléphone ou d'adresse professionnelle requis, une simple adresse email suffit
-- Outils disponibles en France sans VPN
-- Pas de clé d'API requise
+- Outils gratuits ou freemium avec crédits suffisants pour des tests à moyen terme, sans période d'essai restrictive.
+- Inscription facilitée : pas de numéro de téléphone ou d'adresse professionnelle requis, une simple adresse email suffit.
+- Outils disponibles en France sans VPN.
+- Pas de clé d'API requise.
 
 ### Éthique et respect
-- Outils respectueux de l'humain dans leurs générations (pas de violence, nudité, deepfakes)
-- Pas d'outils « humanizers » (tromperie sur l'origine des contenus)
-- Pas de « détecteurs de contenus IA » (fiabilité non garantie)
-- Publicité absente ou discrète et non invasive
+- Outils respectueux de l'humain dans leurs générations (pas de violence, nudité, deepfakes).
+- Pas d'outils « humanizers » (tromperie sur l'origine des contenus).
+- Pas de « détecteurs de contenus IA » (fiabilité non garantie).
+- Publicité absente ou discrète et non invasive.
 
 ### Transparence et authenticité
-- Captures d'écran brutes, non retouchées (erreurs des outils visibles)
-- Instructions récurrentes pour permettre la comparaison entre outils
-- Aucune collaboration commerciale, aucun avantage personnel
-- Tous les articles sont écrits sans assistance IA
+- Captures d'écran brutes, non retouchées (erreurs des outils visibles).
+- Instructions récurrentes pour permettre la comparaison entre outils.
+- Aucune collaboration commerciale, aucun avantage personnel.
+- Tous les articles sont écrits sans assistance d'une IA générative.
 
 ---
 
@@ -57,7 +57,7 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 | **Accueil** | `/` | Fil des articles (1 outil IA par jour), paginé |
 | **Sélection** | `/selection/` | 60 outils choisis, classés en 10 catégories × 3 niveaux, PDF téléchargeable |
 | **Aide au choix** | `/aide-au-choix/` | Arbre de décision interactif (réalisé avec Lovable) |
-| **Lettre d'infos** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives |
+| **Lettre d'infos** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives récentes |
 | **Lectures partagées** | `/lectures-partagees/` | Compilation des ressources de veille de la newsletter |
 | **À propos du site** | `/a-propos-du-site/` | Principes éditoriaux, contact |
 
@@ -78,8 +78,7 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 - **Période** : 16/02/2023 → aujourd'hui (publication quotidienne)
 - **34 catégories** WordPress utilisées pour le classement
 - **Format d'un article** : titre, URL de l'outil, description textuelle, captures d'écran, catégories, date de publication
-- **Structure de la base** : fichier .ods avec colonnes titre / description / URL sur le site / catégories (jusqu'à 6) / date de publication
-- **9 jours sans publication confirmés** (pas d'article ni sur le site ni dans le feed RSS)
+- **Structure de la base de données** : fichier .ods avec colonnes titre / description / URL sur le site / catégories (jusqu'à 6) / date de publication  
 
 ### Distribution de la base de données (multi-plateforme)
 
@@ -90,11 +89,11 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 | **Hugging Face** | `huggingface.co/datasets/uneiaparjour/base` | ODS + CSV | Exploration interactive (Dataset Viewer), API, communauté IA |
 
 ### Workflow de mise à jour de la base
-1. Mettre à jour le fichier `base-uneiaparjour.ods` localement
-2. Le téléverser sur **GitHub** (Add file → Upload files → le fichier écrase l'ancien)
+1. Mise à jour du fichier `base-uneiaparjour.ods` localement
+2. Téléversé sur **GitHub** (Add file → Upload files → le fichier écrase l'ancien)
 3. Un **workflow GitHub Actions** génère automatiquement le CSV à partir de l'ODS
-4. Un second workflow **synchronise automatiquement vers Hugging Face** (ODS + CSV + README)
-5. Mettre à jour le fichier en téléchargement sur **WordPress** (`/base/`) manuellement
+4. Le workflow **synchronise ensuite automatiquement vers Hugging Face** (ODS + CSV + README)
+5. Mise à jour manuelle du fichier en téléchargement sur **WordPress** (`/base/`)
 
 ### Structure du dépôt GitHub `uneIAparjour/base`
 ```
@@ -148,7 +147,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ## Page Lectures partagées (détail)
 
 ### Données
-- **118 ressources** compilées (lettres #1 à #23, au 08/02/2026)
+- **142 ressources** compilées (lettres #1 à #24, au 14/02/2026)
 - Classement thématique en **10 catégories** (antéchronologique au sein de chaque catégorie)
 
 ### Catégories thématiques
@@ -177,7 +176,7 @@ Lien direct : Source
 - **Dépôt source** : `https://github.com/uneIAparjour/export-lectures-partagees`
 - **7 formats d'export** : HTML (bookmarks), OPML (Feedly), CSV, RDF (Zotero), XML, Markdown, BibTeX, JSON
 - **Fonctionnalités** : filtrage par catégorie, recherche textuelle, sélection individuelle
-- **Données** : fichier `data.json` statique (mis à jour manuellement, le workflow GitHub Actions de parsing WordPress a été supprimé)
+- **Données** : fichier `data.json` statique (mis à jour manuellement)
 - **Style** : fond sombre (#2D2D2D), accent orange (#E67E22), police Montserrat
 
 ---
@@ -187,15 +186,14 @@ Lien direct : Source
 ### Présence en ligne
 - **Site** : uneiaparjour.fr (WordPress)
 - **Newsletter** : uneiaparjour.substack.com
-- **Réseaux sociaux** : X/Twitter, LinkedIn, Facebook, Bluesky (via @bertrandformet + #uneIAparjour)
-- **GitHub** : `github.com/uneIAparjour` — 2 dépôts : `base` (base de données) et `export-lectures-partagees` (outil d'export)
+- **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (https://www.facebook.com/uneIAparjour/)
+- **GitHub** : `github.com/uneIAparjour` — 5 dépôts :
+  - `base` : base de données du site (ODS + CSV, sync Hugging Face)
+  - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages)
+  - `site-documentation` : documentation générale du site (agent.md, etc.)
+  - `choix-outil-ia` : application « Aide au choix » d'un outil IA (réalisée avec Lovable)
+  - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
 - **Hugging Face** : `huggingface.co/datasets/uneiaparjour/base` — base de données (synchronisée depuis GitHub)
-
-### Widgets/sidebar du site
-- Bloc contact
-- Description « Un jour, un outil d'IA générative »
-- Lien de téléchargement de la base .ods
-- Boutons de partage (Facebook, X, LinkedIn, Bluesky via Jetpack)
 
 ---
 
@@ -223,13 +221,12 @@ Lien direct : Source
 #### Dépôt `uneIAparjour/base` (base de données du site)
 - Contient l'ODS source, le CSV auto-généré, et l'agent.md
 - Workflows GitHub Actions : génération CSV + synchronisation Hugging Face
-- Mise à jour : téléverser un nouvel ODS → le reste est automatique
+- Mise à jour par téléversement d'un nouvel ODS → le reste est automatique
 - Le dossier `versions/` archive les 6 versions pré-GitHub ; le versioning est désormais géré par Git
 
 #### Dépôt `uneIAparjour/export-lectures-partagees` (outil d'export des lectures partagées)
 - Ne concerne que la page Lectures partagées, pas le reste du site
 - Le fichier `data.json` est statique et mis à jour manuellement (ne jamais modifier les URLs existantes)
-- Le workflow GitHub Actions de parsing WordPress a été supprimé
 - L'iframe dans WordPress communique via `postMessage` pour le scroll et le redimensionnement
 - Police Montserrat héritée du site parent, cohérence visuelle orange/noir impérative
 
