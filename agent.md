@@ -2,13 +2,13 @@
 
 ## Identité du projet
 
-**Nom** : Une IA par jour
-**URL** : https://www.uneiaparjour.fr
-**Auteur** : Bertrand Formet
-**Contact** : contact@uneiaparjour.fr · @bertrandformet sur les réseaux sociaux
-**Licence** : Creative Commons CC BY 4.0 (articles, catégorisation, sélection, base de données)
-**Hashtag** : #uneIAparjour
-**Lancement** : février 2023 (d'abord sur X/Twitter, puis site dédié depuis novembre 2023)
+**Nom** : Une IA par jour  
+**URL** : https://www.uneiaparjour.fr  
+**Auteur** : Bertrand Formet  
+**Contact** : contact@uneiaparjour.fr · @bertrandformet sur les réseaux sociaux  
+**Licence** : Creative Commons CC BY 4.0 (articles, catégorisation, sélection, base de données)  
+**Hashtag** : #uneIAparjour  
+**Lancement** : février 2023 (d'abord sur X/Twitter, puis site dédié depuis novembre 2023)  
 
 ## Mission
 
@@ -64,18 +64,50 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 ### Page accessible via le footer
 | Page | URL | Description |
 |------|-----|-------------|
-| **Base du site** | `/base/` | Téléchargement de la base de données (.ods) sous CC BY |
+| **Base du site** | `/base/` | Téléchargement de la base de données (.ods) + liens GitHub et Hugging Face |
+| **Contact** | `/contact/` | Formulaire de contact |
+| **Mentions et confidentialité** | `/mentions-et-confidentialite/` | Mentions légales |
+| **Plan du site** | `/sitemap_index.xml` | Sitemap XML |
 
 ---
 
 ## Contenus et données
 
 ### Base des articles (contenu principal)
-- **~1 089 outils** référencés (au 10/02/2026)
+- **~1 093 outils** référencés (au 15/02/2026)
 - **Période** : 16/02/2023 → aujourd'hui (publication quotidienne)
 - **34 catégories** WordPress utilisées pour le classement
 - **Format d'un article** : titre, URL de l'outil, description textuelle, captures d'écran, catégories, date de publication
-- **Base téléchargeable** : fichier .ods avec colonnes titre / description / URL sur le site / catégories (jusqu'à 6) / date de publication
+- **Structure de la base** : fichier .ods avec colonnes titre / description / URL sur le site / catégories (jusqu'à 6) / date de publication
+- **9 jours sans publication confirmés** (pas d'article ni sur le site ni dans le feed RSS)
+
+### Distribution de la base de données (multi-plateforme)
+
+| Canal | URL | Format | Rôle |
+|-------|-----|--------|------|
+| **Site** (page `/base/`) | `uneiaparjour.fr/base` | ODS | Téléchargement direct pour les lecteurs |
+| **GitHub** | `github.com/uneIAparjour/base` | ODS + CSV | Versioning, automatisation, réutilisation technique |
+| **Hugging Face** | `huggingface.co/datasets/uneiaparjour/base` | ODS + CSV | Exploration interactive (Dataset Viewer), API, communauté IA |
+
+### Workflow de mise à jour de la base
+1. Mettre à jour le fichier `base-uneiaparjour.ods` localement
+2. Le téléverser sur **GitHub** (Add file → Upload files → le fichier écrase l'ancien)
+3. Un **workflow GitHub Actions** génère automatiquement le CSV à partir de l'ODS
+4. Un second workflow **synchronise automatiquement vers Hugging Face** (ODS + CSV + README)
+5. Mettre à jour le fichier en téléchargement sur **WordPress** (`/base/`) manuellement
+
+### Structure du dépôt GitHub `uneIAparjour/base`
+```
+📁 .github/workflows/     ← Workflows : génération CSV + sync Hugging Face
+📁 versions/               ← Archive des 6 versions historiques pré-GitHub
+📄 .gitignore
+📄 LICENSE                 ← CC BY 4.0
+📄 README.md               ← Documentation du dépôt
+📄 agent.md                ← Ce fichier
+📄 base-uneiaparjour.csv   ← Généré automatiquement par le workflow
+📄 base-uneiaparjour.ods   ← Fichier source (mis à jour manuellement)
+📄 huggingface-README.md   ← Dataset card poussée vers Hugging Face
+```
 
 ### Catégories WordPress (32 actives + archives)
 actualités et fact-checking · application · automatisation · bande dessinée · chatbot · données · documents · éducation · histoires enfants · images · images 3D · navigateur · jeu vidéo · mindmap · musique · infographie · langues · LLM · open source · présentation · quiz et flashcards · qr code · recherche · sans compte · site web · texte · tutoriel · usage illimité · vidéo · voix · youtube · archives
@@ -98,7 +130,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ### Distribution
 - **Plateforme** : Substack (`https://uneiaparjour.substack.com/`)
 - **Fréquence** : hebdomadaire (samedi)
-- **Numéro actuel** : #23+ (au 10/02/2026)
+- **Numéro actuel** : #24+ (au 15/02/2026)
 - **Première lettre** : 6 septembre 2025
 
 ### Structure récurrente de chaque lettre
@@ -116,7 +148,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ## Page Lectures partagées (détail)
 
 ### Données
-- **116 ressources** compilées (lettres #1 à #22, au 31/01/2026)
+- **118 ressources** compilées (lettres #1 à #23, au 08/02/2026)
 - Classement thématique en **10 catégories** (antéchronologique au sein de chaque catégorie)
 
 ### Catégories thématiques
@@ -145,8 +177,7 @@ Lien direct : Source
 - **Dépôt source** : `https://github.com/uneIAparjour/export-lectures-partagees`
 - **7 formats d'export** : HTML (bookmarks), OPML (Feedly), CSV, RDF (Zotero), XML, Markdown, BibTeX, JSON
 - **Fonctionnalités** : filtrage par catégorie, recherche textuelle, sélection individuelle
-- **Synchronisation automatique** : GitHub Actions (quotidien à 3h, heure de Paris)
-- **Données** : fichier `data.json` parsé depuis le HTML WordPress
+- **Données** : fichier `data.json` statique (mis à jour manuellement, le workflow GitHub Actions de parsing WordPress a été supprimé)
 - **Style** : fond sombre (#2D2D2D), accent orange (#E67E22), police Montserrat
 
 ---
@@ -157,6 +188,8 @@ Lien direct : Source
 - **Site** : uneiaparjour.fr (WordPress)
 - **Newsletter** : uneiaparjour.substack.com
 - **Réseaux sociaux** : X/Twitter, LinkedIn, Facebook, Bluesky (via @bertrandformet + #uneIAparjour)
+- **GitHub** : `github.com/uneIAparjour` — 2 dépôts : `base` (base de données) et `export-lectures-partagees` (outil d'export)
+- **Hugging Face** : `huggingface.co/datasets/uneiaparjour/base` — base de données (synchronisée depuis GitHub)
 
 ### Widgets/sidebar du site
 - Bloc contact
@@ -182,12 +215,21 @@ Lien direct : Source
 - **Articles** : publication quotidienne, vérifier le site ou le RSS pour les nouveaux ajouts
 - **Newsletter** : hebdomadaire, chaque nouveau numéro peut contenir 4-8 nouvelles ressources pour les lectures partagées
 - **Sélection** : mise à jour périodique (mention « Version du JJ/MM/AAAA »), ~60 outils
-- **Base .ods** : reflet complet des articles du site
+- **Base .ods** : reflet complet des articles du site. Mise à jour sur GitHub → CSV et Hugging Face se mettent à jour automatiquement. WordPress (`/base/`) reste à mettre à jour manuellement.
+- **Lectures partagées / data.json** : mis à jour manuellement dans le dépôt `export-lectures-partagees`
 
-### Intégration technique (outil d'export des lectures partagées uniquement)
-- Le dépôt GitHub (`github.com/uneIAparjour/export-lectures-partagees`) ne concerne que la page Lectures partagées, pas le reste du site
-- Le fichier `data.json` dans le dépôt est la source de données pour l'outil d'export
-- Le workflow GitHub Actions parse le HTML de `/lectures-partagees/` pour générer `data.json`
+### Intégration technique
+
+#### Dépôt `uneIAparjour/base` (base de données du site)
+- Contient l'ODS source, le CSV auto-généré, et l'agent.md
+- Workflows GitHub Actions : génération CSV + synchronisation Hugging Face
+- Mise à jour : téléverser un nouvel ODS → le reste est automatique
+- Le dossier `versions/` archive les 6 versions pré-GitHub ; le versioning est désormais géré par Git
+
+#### Dépôt `uneIAparjour/export-lectures-partagees` (outil d'export des lectures partagées)
+- Ne concerne que la page Lectures partagées, pas le reste du site
+- Le fichier `data.json` est statique et mis à jour manuellement (ne jamais modifier les URLs existantes)
+- Le workflow GitHub Actions de parsing WordPress a été supprimé
 - L'iframe dans WordPress communique via `postMessage` pour le scroll et le redimensionnement
 - Police Montserrat héritée du site parent, cohérence visuelle orange/noir impérative
 
