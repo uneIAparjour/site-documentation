@@ -181,7 +181,7 @@ Lien direct : Source
 
 ---
 
-## Réseau de distribution
+## Réseau de diffusion
 
 ### Présence en ligne
 - **Site** : uneiaparjour.fr (WordPress)
