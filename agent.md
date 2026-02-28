@@ -184,9 +184,9 @@ Lien direct : Source
 ## Réseau de diffusion
 
 ### Présence en ligne
-- **Site** : uneiaparjour.fr (WordPress)
-- **Newsletter** : uneiaparjour.substack.com
-- **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (https://www.facebook.com/uneIAparjour/)
+- **Site** : `uneiaparjour.fr` (WordPress)
+- **Newsletter** : `uneiaparjour.substack.com`
+- **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (`https://www.facebook.com/uneIAparjour/`)
 - **GitHub** : `github.com/uneIAparjour` — 5 dépôts :
   - `base` : base de données du site (ODS + CSV, sync Hugging Face)
   - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages)
