@@ -84,9 +84,9 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 
 | Canal | URL | Format | Rôle |
 |-------|-----|--------|------|
-| **Site** (page `/base/`) | `uneiaparjour.fr/base` | ODS | Téléchargement direct pour les lecteurs |
-| **GitHub** | `github.com/uneIAparjour/base` | ODS + CSV | Versioning, automatisation, réutilisation technique |
-| **Hugging Face** | `huggingface.co/datasets/uneiaparjour/base` | ODS + CSV | Exploration interactive (Dataset Viewer), API, communauté IA |
+| **Site** (page `/base/`) | `https://www.uneiaparjour.fr/base` | ODS | Téléchargement direct pour les lecteurs |
+| **GitHub** | `https://www.github.com/uneIAparjour/base` | ODS + CSV | Versioning, automatisation, réutilisation technique |
+| **Hugging Face** | `https://www.huggingface.co/datasets/uneiaparjour/base` | ODS + CSV | Exploration interactive (Dataset Viewer), API, communauté IA |
 
 ### Workflow de mise à jour de la base
 1. Mise à jour du fichier `base-uneiaparjour.ods` localement
@@ -184,16 +184,16 @@ Lien direct : Source
 ## Réseau de diffusion
 
 ### Présence en ligne
-- **Site** : `uneiaparjour.fr` (WordPress)
-- **Newsletter** : `uneiaparjour.substack.com`
+- **Site** : `https://www.uneiaparjour.fr` (WordPress)
+- **Newsletter** : `https://www.uneiaparjour.substack.com`
 - **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (`https://www.facebook.com/uneIAparjour/`)
-- **GitHub** : `github.com/uneIAparjour` — 5 dépôts :
+- **GitHub** : `https://www.github.com/uneIAparjour` — 5 dépôts :
   - `base` : base de données du site (ODS + CSV, sync Hugging Face)
   - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages)
   - `site-documentation` : documentation générale du site (agent.md, etc.)
   - `choix-outil-ia` : application « Aide au choix » d'un outil IA (réalisée avec Lovable)
   - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
-- **Hugging Face** : `huggingface.co/datasets/uneiaparjour/base` — base de données (synchronisée depuis GitHub)
+- **Hugging Face** : `https://huggingface.co/datasets/uneiaparjour/base` — base de données (synchronisée depuis GitHub)
 
 ---
 
