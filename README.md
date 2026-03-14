@@ -8,7 +8,7 @@ Ressources et documents de référence associés à la veille **[Une IA par jour
 
 | Fichier | Description |
 |---|---|
-| `uneiaparjour-infographie.html` | Infographie de présentation de la veille — format paysage, exportable en PDF et PNG |
+| `uneiaparjour-infographie.html` | Infographie de présentation d'uneIAparjour|
 | `agend.md` | — |
 
 ---
