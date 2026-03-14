@@ -74,7 +74,7 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 ## Contenus et données
 
 ### Base des articles (contenu principal)
-- **~1 093 outils** référencés (au 15/02/2026)
+- **~1 120 outils** référencés (au 14/03/2026)
 - **Période** : 16/02/2023 → aujourd'hui (publication quotidienne)
 - **34 catégories** WordPress utilisées pour le classement
 - **Format d'un article** : titre, URL de l'outil, description textuelle, captures d'écran, catégories, date de publication
@@ -129,7 +129,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ### Distribution
 - **Plateforme** : Substack (`https://uneiaparjour.substack.com/`)
 - **Fréquence** : hebdomadaire (samedi)
-- **Numéro actuel** : #24+ (au 15/02/2026)
+- **Numéro actuel** : #28+ (au 14/03/2026)
 - **Première lettre** : 6 septembre 2025
 
 ### Structure récurrente de chaque lettre
@@ -147,7 +147,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ## Page Lectures partagées (détail)
 
 ### Données
-- **142 ressources** compilées (lettres #1 à #24, au 14/02/2026)
+- **211 ressources** compilées (lettres #1 à #28, au 14/03/2026)
 - Classement thématique en **10 catégories** (antéchronologique au sein de chaque catégorie)
 
 ### Catégories thématiques
