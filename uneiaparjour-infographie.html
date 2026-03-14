@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Une IA par jour — Infographie</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:#161616;display:flex;justify-content:center;padding:24px;min-height:100vh}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#2D2D2D;--dark:#252525;--panel:#323232;
+  --border:#404040;--bs:#383838;
+  --orange:#E67E22;--amber:#F39C12;
+  --white:#FFFFFF;--muted:#999;--dim:#666;
+  --font:'Montserrat',sans-serif;
+}
+body{font-family:var(--font);background:#161616;display:flex;justify-content:center;align-items:flex-start;padding:24px;min-height:100vh}
+
+/* ── PAGE ── */
+.page{width:1280px;background:var(--bg);color:var(--white);display:flex;flex-direction:column;overflow:hidden;position:relative;border-radius:6px;box-shadow:0 12px 48px rgba(0,0,0,.7)}
+.page::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber) 50%,var(--orange));z-index:20}
+.watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-46%);width:360px;height:360px;opacity:.04;mix-blend-mode:screen;pointer-events:none;z-index:0;object-fit:contain}
+
+/* ── HEADER ── */
+.header{flex-shrink:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:var(--dark);border-bottom:1px solid var(--border);position:relative;z-index:5}
+.header-left{display:flex;align-items:center;gap:14px}
+.logo-img{width:42px;height:42px;object-fit:contain;mix-blend-mode:screen;flex-shrink:0}
+.header-title h1{font-size:21px;font-weight:900;letter-spacing:-.5px;line-height:1}
+.header-title h1 em{font-style:normal;color:var(--orange)}
+.header-title p{font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.8px;margin-top:4px;text-transform:uppercase}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.url-tag{font-size:13px;font-weight:800;color:var(--orange);letter-spacing:-.3px;text-decoration:none;transition:opacity .15s}
+.url-tag:hover{opacity:.75}
+.author-tag{font-size:9.5px;font-weight:400;color:var(--muted);text-decoration:none;transition:color .15s}
+.author-tag:hover{color:#ccc}
+
+/* ── BODY ── */
+.body{display:grid;grid-template-columns:210px 1fr;position:relative;z-index:2}
+.left-col{border-right:1px solid var(--bs);padding:24px 20px 22px}
+.sec-label{font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bs)}
+.timeline-track{position:relative;padding-left:16px}
+.timeline-track::before{content:'';position:absolute;left:4px;top:7px;bottom:7px;width:2px;background:linear-gradient(to bottom,var(--orange),var(--amber));border-radius:2px}
+.tl-item{position:relative;padding-left:12px;margin-bottom:18px}
+.tl-item:last-child{margin-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-16px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--orange);border:2px solid var(--bg);box-shadow:0 0 0 1.5px var(--orange)}
+.tl-date{font-size:8px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.6px}
+.tl-text{font-size:10px;font-weight:500;color:#ddd;line-height:1.45;margin-top:2px}
+.tl-sub{font-size:8.5px;color:var(--dim)}
+.right-col{padding:20px 28px 20px;display:flex;flex-direction:column;gap:14px}
+
+/* ── CHARTE ── */
+.charte-block{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;position:relative}
+.charte-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange)}
+.charte-head{padding:11px 20px 10px;border-bottom:1px solid var(--bs);display:flex;align-items:baseline;gap:12px}
+.charte-title{font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--orange)}
+.charte-sub{font-size:8.5px;font-weight:400;color:var(--muted)}
+.charte-cols{display:grid;grid-template-columns:repeat(3,1fr)}
+.charte-col{padding:14px 18px 15px;position:relative}
+.charte-col+.charte-col::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:1px;background:var(--bs)}
+.col-head{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.col-icon{width:28px;height:28px;background:rgba(230,126,34,.13);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.col-icon svg{width:14px;height:14px;fill:var(--orange)}
+.col-name{font-size:10px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:.3px;line-height:1.2}
+.col-items{display:flex;flex-direction:column;gap:7px}
+.col-item{display:flex;align-items:flex-start;gap:7px}
+.chk{width:13px;height:13px;border-radius:3px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.chk svg{width:7px;height:7px;fill:white}
+.col-txt{font-size:9.5px;font-weight:500;color:#c8c8c8;line-height:1.45}
+.col-txt strong{color:var(--white);font-weight:700}
+.cc-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(230,126,34,.08);border:1px solid rgba(230,126,34,.25);border-radius:4px;padding:3px 8px;font-size:8.5px;font-weight:700;color:var(--orange);margin-top:3px}
+
+/* ── RESSOURCES ── */
+.resources{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.res-item{display:flex;align-items:flex-start;gap:9px;background:rgba(255,255,255,.03);border:1px solid var(--bs);border-radius:7px;padding:9px 11px;text-decoration:none;transition:border-color .15s,background .15s;cursor:pointer}
+.res-item:hover{border-color:#555;background:rgba(255,255,255,.06)}
+.res-icon{width:22px;height:22px;background:rgba(230,126,34,.12);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.res-icon svg{width:11px;height:11px;fill:var(--orange)}
+.res-txt{font-size:9.5px;font-weight:600;color:#ccc;line-height:1.35}
+.res-txt span{font-size:8.5px;font-weight:400;color:var(--dim);display:block;margin-top:1px}
+
+/* ── FOOTER STATS ── */
+.footer-stats{flex-shrink:0;background:var(--dark);border-top:1px solid var(--border);padding:0 36px;display:flex;align-items:center;height:70px;position:relative;z-index:5}
+.f-label{font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--orange);white-space:nowrap;margin-right:22px;flex-shrink:0}
+.stats-row{display:flex;flex:1;align-items:center}
+.stat-block{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 6px;border-left:1px solid var(--bs);height:54px}
+.stat-num{font-size:26px;font-weight:900;color:var(--white);letter-spacing:-1.5px;line-height:1}
+.stat-num sup{font-size:13px;font-weight:700;color:var(--orange);margin-left:1px;vertical-align:super}
+.stat-lbl{font-size:8px;font-weight:500;color:var(--muted);text-align:center;line-height:1.35;margin-top:3px}
+
+/* ── FOOTER CANAUX ── */
+.footer-channels{flex-shrink:0;background:#222;border-top:1px solid var(--bs);padding:0 36px;min-height:34px;height:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:relative;z-index:5}
+.ch-label{font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:1.1px;color:var(--dim);white-space:nowrap;flex-shrink:0}
+.ch-pills{display:flex;flex-wrap:wrap;gap:5px;align-items:center;flex:1;padding:6px 0}
+.pill{display:flex;align-items:center;gap:4px;padding:2px 8px;border-radius:4px;border:1px solid #3a3a3a;background:transparent;font-size:8px;font-weight:600;color:#666;white-space:nowrap;text-decoration:none;transition:border-color .15s,color .15s;cursor:pointer}
+.pill:hover{border-color:#666;color:#aaa}
+.pill:hover svg{fill:#888!important}
+.pill svg{width:8px;height:8px;fill:#555;flex-shrink:0;transition:fill .15s}
+.maj{font-size:7.5px;font-weight:500;color:#666;letter-spacing:.3px;white-space:nowrap;flex-shrink:0}
+
+
+</style>
+</head>
+<body>
+<div class="page" id="infographie">
+  <img class="watermark" src="data:image/png;base64,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" alt="">
+  <header class="header">
+    <div class="header-left">
+      <img class="logo-img" src="data:image/png;base64,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" alt="Logo">
+      <div class="header-title">
+        <h1>Une <em>IA</em> par jour</h1>
+        <p>Veille quotidienne &amp; indépendante sur l’IA générative</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <a class="url-tag" id="h-url" href="https://www.uneiaparjour.fr" target="_blank" rel="noopener">uneiaparjour.fr</a>
+      <a class="author-tag" id="h-author" href="https://www.linkedin.com/in/bertrandformet/" target="_blank" rel="noopener">Bertrand Formet</a>
+    </div>
+  </header>
+  <div class="body">
+    <div class="left-col">
+      <div class="sec-label">Chronologie</div>
+      <div class="timeline-track" id="timeline"><div class="tl-item"><div class="tl-date">Fév. 2023</div><div class="tl-text">Lancement sur les réseaux sociaux<br><span class="tl-sub">#uneIAparjour</span></div></div><div class="tl-item"><div class="tl-date">Nov. 2023</div><div class="tl-text">Ouverture du site dédié<br><span class="tl-sub">https://www.uneiaparjour.fr</span></div></div><div class="tl-item"><div class="tl-date">Sept. 2025</div><div class="tl-text">Lancement de la lettre d'infos hebdomadaire<br><span class="tl-sub">https://uneiaparjour.substack.com/</span></div></div></div>
+    </div>
+    <div class="right-col">
+      <div class="charte-block">
+        <div class="charte-head">
+          <span class="charte-title">Charte éditoriale</span>
+          <span class="charte-sub" id="charte-sub">3 piliers, cœur de l'identité d'uneIAparjour</span>
+        </div>
+        <div class="charte-cols" id="charte-cols"><div class="charte-col"><div class="col-head"><div class="col-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="#E67E22"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg></div><div class="col-name">Accessibilité &amp; Simplicité</div></div><div class="col-items"><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt">Outils <strong>gratuits ou freemium</strong>,  expérimentation  sans restriction</div></div><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt">Inscription par <strong>simple email</strong>, sans numéro de téléphone ni adresse professionnelle</div></div><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt">Disponibles <strong>en France</strong>, sans VPN ni clé d'API</div></div></div></div><div class="charte-col"><div class="col-head"><div class="col-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="#E67E22"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l6 2.67V11c0 3.85-2.64 7.45-6 8.93C9.64 18.45 7 14.85 7 11V7.67L12 5z"></path></svg></div><div class="col-name">Éthique &amp; Respect</div></div><div class="col-items"><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt"><strong>Outils respectueux</strong> : pas de violence, nudité, deepfakes, fakenews</div></div><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt"><strong>Refus des "humanizers"</strong> : transparence sur l'origine des contenus produits</div></div><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt"><strong>Pas de publicité intrusive</strong>, avec de préférence sans publicité</div></div></div></div><div class="charte-col"><div class="col-head"><div class="col-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="#E67E22"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg></div><div class="col-name">Transparence &amp; Authenticité</div></div><div class="col-items"><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt"><strong>Captures d'écran brutes</strong>, non retouchées : les erreurs restent visibles</div></div><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt">Rédaction des articles <strong>entièrement sans assistance IA générative</strong> </div></div><div class="col-item"><div class="chk"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></div><div class="col-txt"><strong>Aucune collaboration commerciale</strong>, aucun avantage personnel</div></div><div class="col-item"><div class="cc-badge"><svg viewBox="0 0 16 16" width="9" height="9" style="fill:#E67E22"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14.5c-3.59 0-6.5-2.91-6.5-6.5S4.41 1.5 8 1.5 14.5 4.41 14.5 8 11.59 14.5 8 14.5zm-.5-4h1V5h-1v5.5zm0-7h1V2h-1v1.5z"></path></svg>Licence CC BY 4.0</div></div></div></div></div>
+      </div>
+      <div class="resources" id="resources"><a class="res-item" href="https://www.uneiaparjour.fr/selection/" target="_blank" rel="noopener"><div class="res-icon"><svg viewBox="0 0 24 24" width="11" height="11" fill="#E67E22"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><div class="res-txt">Sélection d'outils<span>60 outils · 10 catégories · 3 niveaux</span></div></a><a class="res-item" href="https://www.uneiaparjour.fr/base/" target="_blank" rel="noopener"><div class="res-icon"><svg viewBox="0 0 24 24" width="11" height="11" fill="#E67E22"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.34 6 2s-2.13 2-6 2-6-1.34-6-2 2.13-2 6-2zm0 14c-3.87 0-6-1.34-6-2v-1.72C7.35 17.56 9.55 18 12 18s4.65-.44 6-1.72V17c0 .66-2.13 2-6 2zm0-4c-3.87 0-6-1.34-6-2v-1.72C7.35 13.56 9.55 14 12 14s4.65-.44 6-1.72V13c0 .66-2.13 2-6 2z"></path></svg></div><div class="res-txt">Base de données partagée<span>Outils référencés, catégorisés, documentés</span></div></a><a class="res-item" href="https://www.uneiaparjour.fr/aide-au-choix/" target="_blank" rel="noopener"><div class="res-icon"><svg viewBox="0 0 24 24" width="11" height="11" fill="#E67E22"><path d="M7 6h10l-5.01 6.3L7 6zm-2.75-.39C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39C20.25 4.95 19.78 4 18.95 4H5.04C4.22 4 3.75 4.95 4.25 5.61z"></path></svg></div><div class="res-txt">Aide au choix d'application<span>Aide à la réflexion guidée selon l'usage</span></div></a><a class="res-item" href="https://www.uneiaparjour.fr/lectures-partagees/" target="_blank" rel="noopener"><div class="res-icon"><svg viewBox="0 0 24 24" width="11" height="11" fill="#E67E22"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path></svg></div><div class="res-txt">Lectures partagées<span>Ressources et articles de référence</span></div></a><a class="res-item" href="https://www.uneiaparjour.fr/category/focus-lettre/" target="_blank" rel="noopener"><div class="res-icon"><svg viewBox="0 0 24 24" width="11" height="11" fill="#E67E22"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"></path></svg></div><div class="res-txt">Focus de la lettre d'information<span>Focus de la lettre publiés sur le site</span></div></a></div>
+    </div>
+  </div>
+  <div class="footer-stats">
+    <div class="f-label">Chiffres clés</div>
+    <div class="stats-row" id="stats-row"><div class="stat-block"><div class="stat-num">1100<sup>+</sup></div><div class="stat-lbl">outils testés,<br>publiés &amp; documentés</div></div><div class="stat-block"><div class="stat-num">2,9<sup>M</sup></div><div class="stat-lbl">pages vues</div></div><div class="stat-block"><div class="stat-num">1,2<sup>M</sup></div><div class="stat-lbl">visiteurs uniques</div></div><div class="stat-block"><div class="stat-num">3000</div><div class="stat-lbl">abonnés à la lettre d'info<br>hebdomadaire</div></div></div>
+  </div>
+  <div class="footer-channels">
+    <span class="ch-label">Diffusion</span>
+    <div class="ch-pills" id="ch-pills"><a class="pill" href="https://www.uneiaparjour.fr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg> Site</a><a class="pill" href="https://uneiaparjour.substack.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg> Lettre d'information</a><a class="pill" href="https://github.com/uneIAparjour" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg> GitHub</a><a class="pill" href="https://huggingface.co/uneIAparjour" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8"><circle cx="12" cy="12" r="9.5" fill="none" stroke="#555" stroke-width="1.2"></circle><circle cx="9" cy="10.5" r="1.2" fill="#555"></circle><circle cx="15" cy="10.5" r="1.2" fill="#555"></circle><path d="M8.5 14.5c1 1.6 6 1.6 7 0" stroke="#555" stroke-width="1.1" stroke-linecap="round" fill="none"></path></svg> Hugging Face</a><a class="pill" href="https://www.linkedin.com/search/results/all/?keywords=%23uneiaparjour" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"></path></svg> LinkedIn</a><a class="pill" href="https://www.facebook.com/uneIAparjour" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg> Facebook</a><a class="pill" href="https://bsky.app/hashtag/uneIAparjour" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M12 2.2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 3c1.66 0 3 .9 3.74 2.23C14.53 7.08 13.3 7 12 7s-2.53.08-3.74.23C8.99 5.9 10.34 5.2 12 5.2zm-7.8 7c0-.27.01-.54.04-.8.92-.1 2.38-.2 3.76-.2 1.15 0 2.23.07 3.1.17-.47.38-.9.83-1.26 1.33-.98-.13-2.01-.2-3.1-.2-1 0-1.88.06-2.54.12V12.2zm7.8 7.6c-3.38 0-6.19-2.1-7.37-5.07.58-.06 1.41-.13 2.37-.13.97 0 1.93.07 2.8.2-.11.43-.17.87-.17 1.33 0 1.56.58 2.98 1.53 4.07-.38-.27-.74-.59-1.16-.4zm1.2.17c-.72-.93-1.2-2.1-1.2-3.37 0-.41.05-.8.14-1.17.78.15 1.5.24 2.06.24.56 0 1.28-.09 2.06-.24.09.37.14.76.14 1.17 0 1.27-.48 2.44-1.2 3.37zm1.6-.17c.95-1.09 1.53-2.51 1.53-4.07 0-.46-.06-.9-.17-1.33.87-.13 1.83-.2 2.8-.2.96 0 1.79.07 2.37.13C20.19 17.7 17.38 19.8 14 19.8zm3-7.6v-.2c-.66-.06-1.54-.12-2.54-.12-1.09 0-2.12.07-3.1.2-.36-.5-.79-.95-1.26-1.33.87-.1 1.95-.17 3.1-.17 1.38 0 2.84.1 3.76.2.03.26.04.53.04.8v.62z"></path></svg> Bluesky</a><a class="pill" href="https://x.com/search?q=%23uneIaparjour" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="8" height="8" fill="#555"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> X / Twitter</a></div>
+    <span class="maj" id="maj">Dernière mise à jour : mars 2026</span>
+  </div>
+</div>
+</body>
+</html>
