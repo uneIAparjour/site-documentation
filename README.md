@@ -9,13 +9,13 @@ Ressources et documents de référence associés à la veille **[Une IA par jour
 | Fichier | Description |
 |---|---|
 | `agent.md` | Fichier de contexte de référence pour les agents IA — documentation exhaustive du projet |
-| `uneiaparjour-infographie.html` | Infographie de présentation de la veille — format paysage, exportable en PDF et PNG |
+| `uneiaparjour-infographie.html` | Infographie de présentation d'uneIAparjour — format paysage, html et exportable |
 
 ---
 
 ## agent.md
 
-Fichier de contexte destiné aux agents IA qui interagissent avec le projet. Il documente de manière exhaustive :
+Fichier de contexte destiné aux agents IA qui interagissent avec uneIAparjour. Il documente de manière exhaustive :
 
 - l'**identité du projet** : nom, URL, auteur, licence CC BY 4.0, hashtag `#uneIAparjour`, date de lancement (février 2023)
 - la **mission** : proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et documenté avec captures d'écran
@@ -35,10 +35,10 @@ Fichier de contexte destiné aux agents IA qui interagissent avec le projet. Il 
 
 L'infographie présente en un coup d'œil :
 
-- la **chronologie** de la veille (2023 → 2025)
+- la **chronologie** d'uneIAparjour (2023 → 2026)
 - la **charte éditoriale** en 3 piliers : Accessibilité, Éthique, Transparence
-- les **ressources du site** : Sélection, Base de données, Aide au choix, Lectures partagées, Focus
-- les **chiffres clés** : 1 100+ outils testés, 2,8 M pages vues, 1,1 M visiteurs uniques, 2 800 abonnés
+- les **ressources du site** : sélection, base de données, aide au choix, lectures partagées, focus
+- les **chiffres clés** : 1 100+ outils testés, 3 M pages vues, 1,25 M visiteurs uniques, 3300 abonnés
 - les **canaux de diffusion**
 
 **Visualiser en ligne →** [uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html](https://uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html)
