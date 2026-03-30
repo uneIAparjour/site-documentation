@@ -1,6 +1,6 @@
 # Documentation du site uneiaparjour.fr
 
-Ressources et documents de référence associés à la veille **[Une IA par jour](https://www.uneiaparjour.fr)**, publiée par Bertrand Formet depuis février 2023.
+Ressources et documents de référence associés à  **[uneIAparjour](https://www.uneiaparjour.fr)**, publié par Bertrand Formet depuis février 2023.
 
 ---
 
