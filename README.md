@@ -33,7 +33,7 @@ Fichier de contexte destiné aux agents IA qui interagissent avec uneIAparjour. 
 
 ## Infographie
 
-L'infographie présente en un coup d'œil :
+L'infographie présente en une page :
 
 - la **chronologie** d'uneIAparjour (2023 → 2026)
 - la **charte éditoriale** en 3 piliers : Accessibilité, Éthique, Transparence
