@@ -8,11 +8,11 @@
 **Contact** : contact@uneiaparjour.fr · @bertrandformet sur les réseaux sociaux  
 **Licence** : Creative Commons CC BY 4.0 (articles, catégorisation, sélection, base de données)  
 **Hashtag** : #uneIAparjour  
-**Lancement** : février 2023 (d'abord sur X/Twitter, puis site dédié depuis novembre 2023)  
+**Lancement** : février 2023 (d'abord seulement sur X/Twitter, puis Linkedin, Bluesky, Facebook et site dédié depuis novembre 2023)  
 
 ## Mission
 
-Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et documenté avec descriptif et captures d'écran. Le site est une ressource de veille indépendante destinée à quiconque souhaite découvrir et expérimenter des applications d'intelligence artificielle générative.
+Proposer chaque jour une application d'IA générative gratuite ou freemium, testée et documentée avec descriptif et captures d'écran. Le site est une ressource de veille indépendante destinée à quiconque souhaite découvrir et expérimenter des applications d'intelligence artificielle générative.
 
 ## Principes éditoriaux
 
@@ -31,7 +31,7 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 ### Transparence et authenticité
 - Captures d'écran brutes, non retouchées (erreurs des outils visibles).
 - Instructions récurrentes pour permettre la comparaison entre outils.
-- Aucune collaboration commerciale, aucun avantage personnel.
+- Pas de collaboration commerciale, pas d'avantage personnel.
 - Tous les articles sont écrits sans assistance d'une IA générative.
 
 ---
@@ -41,9 +41,32 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 ### Plateforme technique
 - **CMS** : WordPress (hébergement OVH)
 - **Thème** : Kenta Artistic Blog (WP Moose)
-- **Plugins notables** : Jetpack (partage social), Google Fonts (Montserrat)
-- **Typographie** : Montserrat (via Google Fonts)
-- **Feed RSS** : disponible (contient les ~1000 articles les plus récents)
+- **Plugins Wordpress** :
+  - AddToAny Share Buttons (partage social)
+  - Advanced 3D Model Viewer
+  - Advanced Editor Tools
+  - Afficher conditionnellement l'image mise en avant
+  - Akismet Anti-spam
+  - Algori 360 Image (utilisé pour la page Écho — aframe.js)
+  - Alt Auto On Save — uneIAparjour (textes alt automatiques, v1.5 — Bertrand Formet & Claude)
+  - Embed Any Document
+  - Featured Image from Content
+  - Kenta Blocks
+  - Kenta Companion
+  - Site Kit de Google
+  - WP Coder
+  - WP Super Cache
+  - WPCode Lite
+  - Yoast SEO
+  - Broken Link Checker/Finder
+- **Typographie** : Montserrat (via Google Fonts, chargé par le thème)
+- **Feed RSS** : disponible, réglé à **31 entrées** (paramètre WordPress)
+
+### Moteur de recherche
+- Overlay plein écran déclenché par la loupe du thème (`.kenta-search-button`)
+- Recherche multi-mots et multi-catégories sur la base complète des outils
+- Données chargées depuis le CSV GitHub (`uneIAparjour/base`) à l'ouverture
+- Code source : dépôt `uneIAparjour/recherche-outils`
 
 ### Structure des URLs
 - Page d'accueil : `https://www.uneiaparjour.fr/`
@@ -51,15 +74,17 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 - Articles individuels : `https://www.uneiaparjour.fr/{slug-outil}/`
 - Catégories : `https://www.uneiaparjour.fr/category/{slug-categorie}/`
 
-### Menu principal (6 entrées)
+### Menu principal (8 entrées)
 | Page | URL | Description |
 |------|-----|-------------|
 | **Accueil** | `/` | Fil des articles (1 outil IA par jour), paginé |
 | **Sélection** | `/selection/` | 60 outils choisis, classés en 10 catégories × 3 niveaux, PDF téléchargeable |
 | **Aide au choix** | `/aide-au-choix/` | Arbre de décision interactif (réalisé avec Lovable) |
-| **Lettre d'infos** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives récentes |
-| **Lectures partagées** | `/lectures-partagees/` | Compilation des ressources de veille de la newsletter |
-| **À propos du site** | `/a-propos-du-site/` | Principes éditoriaux, contact |
+| **Lettre** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives récentes |
+| **Lectures** | `/lectures-partagees/` | Compilation des ressources de veille de la newsletter |
+| **Focus** | `/category/focus-lettre/` | Articles de la catégorie Focus Lettre (exclus de l'accueil et de la base) |
+| **Écho** | `/echo/` | Jeu narratif sur la délégation à la machine |
+| **À propos** | `/a-propos-du-site/` | Principes éditoriaux, contact |
 
 ### Page accessible via le footer
 | Page | URL | Description |
@@ -74,11 +99,11 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 ## Contenus et données
 
 ### Base des articles (contenu principal)
-- **~1 120 outils** référencés (au 14/03/2026)
+- **1 155 outils** référencés (au 12/04/2026)
 - **Période** : 16/02/2023 → aujourd'hui (publication quotidienne)
-- **34 catégories** WordPress utilisées pour le classement
+- **32 catégories** WordPress actives (+ archives)
 - **Format d'un article** : titre, URL de l'outil, description textuelle, captures d'écran, catégories, date de publication
-- **Structure de la base de données** : fichier .ods avec colonnes titre / description / URL sur le site / catégories (jusqu'à 6) / date de publication  
+- **Structure de la base de données** : fichier .ods avec colonnes titre / description / URL de l'article / catégories (jusqu'à 6) / date de publication (JJ/MM/AAAA)  
 
 ### Distribution de la base de données (multi-plateforme)
 
@@ -86,14 +111,17 @@ Proposer chaque jour un outil d'IA générative gratuit ou freemium, testé et d
 |-------|-----|--------|------|
 | **Site** (page `/base/`) | `https://www.uneiaparjour.fr/base` | ODS | Téléchargement direct pour les lecteurs |
 | **GitHub** | `https://www.github.com/uneIAparjour/base` | ODS + CSV | Versioning, automatisation, réutilisation technique |
-| **Hugging Face** | `https://www.huggingface.co/datasets/uneiaparjour/base` | ODS + CSV | Exploration interactive (Dataset Viewer), API, communauté IA |
+| **Hugging Face** | `https://www.huggingface.co/datasets/uneiaparjour/base` | ODS + CSV | Exploration interactive (Dataset Viewer), API, communauté |
 
 ### Workflow de mise à jour de la base
-1. Mise à jour du fichier `base-uneiaparjour.ods` localement
-2. Téléversé sur **GitHub** (Add file → Upload files → le fichier écrase l'ancien)
-3. Un **workflow GitHub Actions** génère automatiquement le CSV à partir de l'ODS
-4. Le workflow **synchronise ensuite automatiquement vers Hugging Face** (ODS + CSV + README)
-5. Mise à jour manuelle du fichier en téléchargement sur **WordPress** (`/base/`)
+Le workflow est **automatisé** via GitHub Actions :
+1. Un article est publié quotidiennement sur Wordpress
+2. Le workflow `nightly-update.yml` (2h00 UTC) lit le RSS, insère les nouveaux articles dans l'ODS, génère le CSV, met à jour le pied de page du site et les READMEs GitHub et synchronise vers Hugging Face
+3. La page WordPress `/base/` affiche la date dynamiquement via le shortcode `[derniere_maj]` — le lien de téléchargement pointe directement vers GitHub raw
+
+En cas de mise à jour manuelle de l'ODS :
+1. Téléverser sur **GitHub** → le workflow `generate-csv.yml` se déclenche automatiquement
+2. CSV et Hugging Face se mettent à jour sans intervention supplémentaire
 
 ### Structure du dépôt GitHub `uneIAparjour/base`
 ```
@@ -129,7 +157,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ### Distribution
 - **Plateforme** : Substack (`https://uneiaparjour.substack.com/`)
 - **Fréquence** : hebdomadaire (samedi)
-- **Numéro actuel** : #28+ (au 14/03/2026)
+- **Numéro actuel** : #32+ (au 10/04/2026)
 - **Première lettre** : 6 septembre 2025
 
 ### Structure récurrente de chaque lettre
@@ -147,7 +175,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ## Page Lectures partagées (détail)
 
 ### Données
-- **211 ressources** compilées (lettres #1 à #28, au 14/03/2026)
+- **Ressources** compilées des lettres d'info Substack
 - Classement thématique en **10 catégories** (antéchronologique au sein de chaque catégorie)
 
 ### Catégories thématiques
@@ -187,12 +215,13 @@ Lien direct : Source
 - **Site** : `https://www.uneiaparjour.fr` (WordPress)
 - **Newsletter** : `https://www.uneiaparjour.substack.com`
 - **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (`https://www.facebook.com/uneIAparjour/`)
-- **GitHub** : `https://www.github.com/uneIAparjour` — 5 dépôts :
+- **GitHub** : `https://www.github.com/uneIAparjour` — 6 dépôts :
   - `base` : base de données du site (ODS + CSV, sync Hugging Face)
   - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages)
   - `site-documentation` : documentation générale du site (agent.md, etc.)
   - `choix-outil-ia` : application « Aide au choix » d'un outil IA (réalisée avec Lovable)
   - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
+  - `recherche-outils` : moteur de recherche overlay (CSS, JS, snippet PHP)
 - **Hugging Face** : `https://huggingface.co/datasets/uneiaparjour/base` — base de données (synchronisée depuis GitHub)
 
 ---
@@ -200,20 +229,20 @@ Lien direct : Source
 ## Règles impératives pour un agent IA
 
 ### Intégrité des données
-- **Ne jamais inventer ou modifier les URLs** des outils ou des ressources : extraire fidèlement depuis les sources (site, Substack)
+- **Ne jamais inventer ou modifier les URLs** des applications ou des ressources : extraire fidèlement depuis les sources (site, Substack)
 - La source de vérité pour les **dates de publication** est le site WordPress, pas le feed RSS (qui peut refléter des dates de republication)
 - Lors de la synchronisation, **croiser** les données entre la base .ods, le feed RSS et le contenu du site
 
 ### Conventions de nommage
-- Titre d'un outil = nom tel qu'affiché sur le site (respect de la casse originale)
+- Titre d'une application = nom tel qu'affiché sur le site (respect de la casse originale)
 - Les catégories WordPress doivent être reproduites exactement (slug et libellé)
 - Les 10 catégories des lectures partagées sont fixes et distinctes des catégories WordPress
 
 ### Mise à jour du contenu
 - **Articles** : publication quotidienne, vérifier le site ou le RSS pour les nouveaux ajouts
-- **Newsletter** : hebdomadaire, chaque nouveau numéro peut contenir 4-8 nouvelles ressources pour les lectures partagées
+- **Newsletter** : hebdomadaire, chaque nouveau numéro peut contenir jusqu'à 10 nouvelles ressources pour les lectures partagées
 - **Sélection** : mise à jour périodique (mention « Version du JJ/MM/AAAA »), ~60 outils
-- **Base .ods** : reflet complet des articles du site. Mise à jour sur GitHub → CSV et Hugging Face se mettent à jour automatiquement. WordPress (`/base/`) reste à mettre à jour manuellement.
+- **Base .ods** : reflet complet des articles du site. Mise à jour automatique sur GitHub → CSV et Hugging Face. La page WordPress (`/base/`) est mise à jour manuellement.
 - **Lectures partagées / data.json** : mis à jour manuellement dans le dépôt `export-lectures-partagees`
 
 ### Intégration technique
@@ -223,6 +252,13 @@ Lien direct : Source
 - Workflows GitHub Actions : génération CSV + synchronisation Hugging Face
 - Mise à jour par téléversement d'un nouvel ODS → le reste est automatique
 - Le dossier `versions/` archive les 6 versions pré-GitHub ; le versioning est désormais géré par Git
+
+#### Dépôt `uneIAparjour/recherche-outils` (moteur de recherche overlay)
+- Overlay full-screen déclenché par la loupe du thème Kenta (`.kenta-search-button`)
+- Recherche textuelle multi-mots, insensible aux accents et aux pluriels simples
+- Filtrage par catégories (tags cliquables, logique ET/OU, ET par défaut)
+- Données chargées depuis le CSV de `uneIAparjour/base` (GitHub raw)
+- Fichiers déployés dans `wp-content/themes/kenta-artistic-blog/` + snippet dans `functions.php`
 
 #### Dépôt `uneIAparjour/export-lectures-partagees` (outil d'export des lectures partagées)
 - Ne concerne que la page Lectures partagées, pas le reste du site
