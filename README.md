@@ -44,7 +44,7 @@ L'infographie présente en une page :
 - les **chiffres clés** : 1 100+ outils testés, 3,3 M pages vues, 1,46 M visiteurs uniques, 3900 abonnés
 - les **canaux de diffusion**
 
-**Visualiser en ligne →** [uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html](https://uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html)
+**Visualiser en ligne →** [uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html](https://uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html) (FR) · [version anglaise](https://uneiaparjour.github.io/site-documentation/uneiaparjour-infographie-en.html)
 
 ---
 
