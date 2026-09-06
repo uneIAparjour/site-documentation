@@ -32,7 +32,7 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 - Captures d'écran brutes, non retouchées (erreurs des outils visibles).
 - Instructions récurrentes pour permettre la comparaison entre outils.
 - Pas de collaboration commerciale, pas d'avantage personnel.
-- Tous les articles (tests, descriptifs) sont écrits par l'auteur, sans assistance d'une IA générative — seule leur traduction sur les pages `/en/` est automatisée, avec vérification a posteriori.
+- Les tests et les articles du site sont réalisés et publiés par l'auteur, sans assistance d'une IA générative — seule leur traduction présente sur les pages « /en/ » est automatisée, avec vérification a posteriori.
 
 ---
 
