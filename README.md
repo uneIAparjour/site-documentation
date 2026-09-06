@@ -27,7 +27,7 @@ Fichier de contexte destiné aux agents IA qui interagissent avec uneIAparjour. 
 - la **Sélection** : 60 outils, 10 catégories × 3 niveaux, PDF téléchargeable
 - la **newsletter** Substack : fréquence hebdomadaire (samedi), structure récurrente des rubriques
 - la page **Lectures partagées** : 390 ressources compilées, 10 catégories thématiques, outil d'export en 7 formats
-- le **réseau de diffusion** : site, newsletter, réseaux sociaux, 8 dépôts GitHub, Hugging Face
+- le **réseau de diffusion** : site, newsletter, réseaux sociaux, 9 dépôts GitHub, Hugging Face
 - la **version anglaise** du site (`/en/`) : pipelines de traduction automatisés, voir `agent-en.md`
 - les **règles impératives** pour un agent IA : intégrité des données, conventions de nommage, fréquences de mise à jour, règles d'intégration technique
 - les informations de **contact** : contact@uneiaparjour.fr · @bertrandformet

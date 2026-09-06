@@ -215,7 +215,7 @@ Lien direct : Source
 - **Site** : `https://www.uneiaparjour.fr` (WordPress)
 - **Newsletter** : `https://www.uneiaparjour.substack.com`
 - **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (`https://www.facebook.com/uneIAparjour/`)
-- **GitHub** : `https://www.github.com/uneIAparjour` — 8 dépôts :
+- **GitHub** : `https://www.github.com/uneIAparjour` — 9 dépôts :
   - `base` : base de données du site en français (ODS + CSV, sync Hugging Face)
   - `base-en` : équivalent anglais de `base`, généré chaque nuit à partir des articles déjà traduits (sync Hugging Face)
   - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages, FR + interface EN)
@@ -224,6 +224,7 @@ Lien direct : Source
   - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
   - `recherche-outils` : moteur de recherche overlay (CSS, JS, snippet PHP), bilingue FR/EN
   - `uneiaparjour-en-translation` : pipeline de traduction FR→EN (voir section « Version anglaise » ci-dessous)
+  - `carte-audience` : carte interactive de l'audience géographique (export Google Analytics), GitHub Pages
 - **Hugging Face** : `https://huggingface.co/datasets/uneiaparjour/base` (FR) et `https://huggingface.co/datasets/uneIAparjour/base-en` (EN) — bases de données synchronisées depuis GitHub
 
 ---
