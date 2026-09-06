@@ -140,7 +140,7 @@ En cas de mise à jour manuelle de l'ODS :
 actualités et fact-checking · application · automatisation · bande dessinée · chatbot · données · documents · éducation · histoires enfants · images · images 3D · navigateur · jeu vidéo · mindmap · musique · infographie · langues · LLM · open source · présentation · quiz et flashcards · qr code · recherche · sans compte · site web · texte · tutoriel · usage illimité · vidéo · voix · youtube · archives
 
 ### Sélection d'outils
-- **60 outils** sélectionnés (version du 01/02/2026)
+- **60 outils** sélectionnés (dernière version du 31/08/2026)
 - **10 catégories** : éducation, chatbots, analyse de documents, présentation, quiz et flashcards, musique, voix, recherche, image et vidéo, génération d'applications et agents
 - **3 niveaux d'appropriation** par catégorie (6 outils × 10 catégories)
 - Disponible en version intégrée et PDF
