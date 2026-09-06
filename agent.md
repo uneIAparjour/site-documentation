@@ -79,19 +79,19 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 |------|-----|-------------|
 | **Accueil** | `/` | Fil des articles (1 outil IA par jour), paginé |
 | **Sélection** | `/selection/` | 60 outils choisis, classés en 10 catégories × 3 niveaux, PDF téléchargeable |
-| **Aide au choix** | `/aide-au-choix/` | Arbre de décision interactif (réalisé avec Lovable) |
+| **Aide au choix** | `/aide/` | Arbre de décision interactif (réalisé avec Lovable) |
 | **Lettre** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives récentes |
 | **Lectures** | `/lectures-partagees/` | Compilation des ressources de veille de la newsletter |
 | **Focus** | `/category/focus-lettre/` | Articles de la catégorie Focus Lettre (exclus de l'accueil et de la base) |
 | **Écho** | `/echo/` | Jeu narratif sur la délégation à la machine |
-| **À propos** | `/a-propos-du-site/` | Principes éditoriaux, contact |
+| **À propos** | `/a-propos/` | Principes éditoriaux, contact |
 
 ### Page accessible via le footer
 | Page | URL | Description |
 |------|-----|-------------|
 | **Base du site** | `/base/` | Téléchargement de la base de données (.ods) + liens GitHub et Hugging Face |
 | **Contact** | `/contact/` | Formulaire de contact |
-| **Mentions et confidentialité** | `/mentions-et-confidentialite/` | Mentions légales |
+| **Mentions et confidentialité** | `/mentions-legales-et-confidentialite/` | Mentions légales |
 | **Plan du site** | `/sitemap_index.xml` | Sitemap XML |
 
 ---
@@ -99,7 +99,7 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 ## Contenus et données
 
 ### Base des articles (contenu principal)
-- **1 155 outils** référencés (au 12/04/2026)
+- **1 295 outils** référencés (au 06/09/2026)
 - **Période** : 16/02/2023 → aujourd'hui (publication quotidienne)
 - **32 catégories** WordPress actives (+ archives)
 - **Format d'un article** : titre, URL de l'outil, description textuelle, captures d'écran, catégories, date de publication
@@ -157,7 +157,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ### Distribution
 - **Plateforme** : Substack (`https://uneiaparjour.substack.com/`)
 - **Fréquence** : hebdomadaire (samedi)
-- **Numéro actuel** : #32+ (au 10/04/2026)
+- **Numéro actuel** : #44 (au 05/09/2026)
 - **Première lettre** : 6 septembre 2025
 
 ### Structure récurrente de chaque lettre
@@ -215,14 +215,29 @@ Lien direct : Source
 - **Site** : `https://www.uneiaparjour.fr` (WordPress)
 - **Newsletter** : `https://www.uneiaparjour.substack.com`
 - **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (`https://www.facebook.com/uneIAparjour/`)
-- **GitHub** : `https://www.github.com/uneIAparjour` — 6 dépôts :
-  - `base` : base de données du site (ODS + CSV, sync Hugging Face)
-  - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages)
-  - `site-documentation` : documentation générale du site (agent.md, etc.)
+- **GitHub** : `https://www.github.com/uneIAparjour` — 8 dépôts :
+  - `base` : base de données du site en français (ODS + CSV, sync Hugging Face)
+  - `base-en` : équivalent anglais de `base`, généré chaque nuit à partir des articles déjà traduits (sync Hugging Face)
+  - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages, FR + interface EN)
+  - `site-documentation` : documentation générale du site (agent.md, agent-en.md, infographie À propos FR/EN)
   - `choix-outil-ia` : application « Aide au choix » d'un outil IA (réalisée avec Lovable)
   - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
-  - `recherche-outils` : moteur de recherche overlay (CSS, JS, snippet PHP)
-- **Hugging Face** : `https://huggingface.co/datasets/uneiaparjour/base` — base de données (synchronisée depuis GitHub)
+  - `recherche-outils` : moteur de recherche overlay (CSS, JS, snippet PHP), bilingue FR/EN
+  - `uneiaparjour-en-translation` : pipeline de traduction FR→EN (voir section « Version anglaise » ci-dessous)
+- **Hugging Face** : `https://huggingface.co/datasets/uneiaparjour/base` (FR) et `https://huggingface.co/datasets/uneIAparjour/base-en` (EN) — bases de données synchronisées depuis GitHub
+
+---
+
+## Version anglaise
+
+Le site existe aussi en anglais sous `https://www.uneiaparjour.fr/en/`, géré via Polylang. Documentation détaillée dans `agent-en.md` (dépôt `site-documentation`) ; résumé ici :
+
+- **Articles quotidiens** : traduits automatiquement chaque nuit (pipeline `translate.js` du dépôt `uneiaparjour-en-translation` — Azure Translator + WordPress REST API), publiés le lendemain matin.
+- **Articles Focus** : pipeline séparé (`translate-focus.js`, même dépôt) car exclus du dataset base/base-en — ce sont des billets éditoriaux, pas des fiches d'outils.
+- **Pages statiques traduites** : Home, Newsletter (`/en/newsletter/`), Readings (`/en/readings/`), Focus, About — placées dans le menu EN dans le même ordre que le menu FR.
+- **Pages pas encore traduites** : Sélection, Aide au choix.
+- **Écho** : ne sera pas traduit (décision éditoriale).
+- **Dataset dédié** : `uneIAparjour/base-en`, généré à partir des seuls articles déjà traduits — le moteur de recherche EN s'appuie dessus, jamais sur `base`.
 
 ---
 
