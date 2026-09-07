@@ -79,7 +79,7 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 |------|-----|-------------|
 | **Accueil** | `/` | Fil des articles (1 outil IA par jour), paginé |
 | **Sélection** | `/selection/` | 60 outils choisis, classés en 10 catégories × 3 niveaux, PDF téléchargeable |
-| **Aide au choix** | `/aide/` | Arbre de décision interactif (réalisé avec Lovable) |
+| **Aide au choix** | `/aide/` | Arbre de décision interactif (v2 actuelle réalisée avec Claude Code) |
 | **Lettre** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives récentes |
 | **Lectures** | `/lectures-partagees/` | Compilation des ressources de veille de la newsletter |
 | **Focus** | `/category/focus-lettre/` | Articles de la catégorie Focus Lettre (exclus de l'accueil et de la base) |
@@ -147,7 +147,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 
 ### Aide au choix
 - Application interactive (arbre de décision)
-- Réalisée avec Lovable
+- v1 réalisée avec Lovable ; v2 (actuelle) réalisée avec Claude Code, application React/TypeScript (Vite)
 - Objectif : aider l'utilisateur à se positionner face aux choix lors de l'utilisation d'un outil IA
 
 ---
@@ -220,7 +220,7 @@ Lien direct : Source
   - `base-en` : équivalent anglais de `base`, généré chaque nuit à partir des articles déjà traduits (sync Hugging Face)
   - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages, FR + interface EN)
   - `site-documentation` : documentation générale du site (agent.md, agent-en.md, infographie À propos FR/EN)
-  - `choix-outil-ia` : application « Aide au choix » d'un outil IA (réalisée avec Lovable)
+  - `choix-outil-ia` : application « Aide au choix » d'un outil IA (v2 actuelle réalisée avec Claude Code)
   - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
   - `recherche-outils` : moteur de recherche overlay (CSS, JS, snippet PHP), bilingue FR/EN
   - `uneiaparjour-en-translation` : pipeline de traduction FR→EN (voir section « Version anglaise » ci-dessous)
