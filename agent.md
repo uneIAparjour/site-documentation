@@ -23,16 +23,16 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 - Pas de clé d'API requise.
 
 ### Éthique et respect
-- Outils respectueux de l'humain dans leurs générations (pas de violence, nudité, deepfakes).
-- Pas d'outils « humanizers » (tromperie sur l'origine des contenus).
-- Pas de « détecteurs de contenus IA » (fiabilité non garantie).
-- Publicité absente ou discrète et non invasive.
+- Outils respectueux : pas d'affichage ni incitation à la génération de contenus violents, nudité, deepfakes ou fakenews
+- Refus des "humanizers" : transparence sur l'origine des contenus générés
+- Pas de publicité intrusive, et sauf exception mentionnée, sans publicité
 
 ### Transparence et authenticité
-- Captures d'écran brutes, non retouchées (erreurs des outils visibles).
-- Instructions récurrentes pour permettre la comparaison entre outils.
-- Pas de collaboration commerciale, pas d'avantage personnel.
-- Les tests et les articles du site sont réalisés et publiés par l'auteur, sans assistance d'une IA générative — seule leur traduction présente sur les pages « /en/ » est automatisée, avec vérification a posteriori.
+- Captures d'écran brutes, non retouchées : les erreurs restent visibles
+- Tests et articles du site réalisés et publiés par l'auteur
+- Lettre hebdomadaire co-écrite avec une IA, sous la responsabilité de l'auteur : méthode détaillée dans le focus de la lettre n°50
+- Aucune collaboration commerciale, aucun avantage personnel
+- Ensemble des contenus publiés sous licence CC BY 4.0
 
 ---
 
