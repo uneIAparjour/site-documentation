@@ -41,7 +41,7 @@ L'infographie présente en une page :
 - la **chronologie** d'uneIAparjour (2023 → 2026)
 - la **charte éditoriale** en 3 piliers : Accessibilité, Éthique, Transparence
 - les **ressources du site** : sélection, base de données, aide au choix, lectures partagées, focus
-- les **chiffres clés** : 1 100+ outils testés, 3,3 M pages vues, 1,46 M visiteurs uniques, 3900 abonnés
+- les **chiffres clés** : 1 350 + outils testés, 4,2 M pages vues, 2,1 M visiteurs uniques, 4 900 abonnés, 120 000 lectures sur Substack
 - les **canaux de diffusion**
 
 **Visualiser en ligne →** [uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html](https://uneiaparjour.github.io/site-documentation/uneiaparjour-infographie.html) (FR) · [version anglaise](https://uneiaparjour.github.io/site-documentation/uneiaparjour-infographie-en.html)
