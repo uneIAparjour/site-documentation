@@ -41,7 +41,7 @@ L'infographie présente en une page :
 
 - la **chronologie** d'uneIAparjour (2023 → 2026)
 - la **charte éditoriale** en 3 piliers : Accessibilité, Éthique, Transparence
-- les **ressources du site en CC BY** : sélection, base de données, aide au choix, non-écrit, lectures partagées, focus
+- les **ressources du site en CC BY** : sélection, base de données, moteur de recherche, aide au choix, non-écrit, lectures partagées, focus, Écho
 - les **chiffres clés** : 1 350 + applications publiées, 4,3 M pages vues, 2,2 M visiteurs uniques, 5 000 abonnés et 130 000 lectures sur Substack
 - les **canaux de diffusion**
 
