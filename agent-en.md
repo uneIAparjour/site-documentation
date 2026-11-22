@@ -1,6 +1,6 @@
 # Agent.md — uneIAparjour.fr (English version)
 
-This file documents the **English side** of uneIAparjour.fr specifically — how it differs from the French site, what's translated, what isn't, and how the translation pipelines work. For the full site documentation (editorial principles, French architecture, etc.), see `agent.md` in this same repo; facts that are identical in both languages aren't repeated here.
+This file documents the **English side** of uneIAparjour.fr specifically — how it differs from the French site, what's translated, and how the translation pipelines work. For the full site documentation (editorial principles, French architecture, etc.), see `agent.md` in this same repo; facts that are identical in both languages aren't repeated here.
 
 ## Project identity
 
@@ -14,47 +14,48 @@ This file documents the **English side** of uneIAparjour.fr specifically — how
 
 ## Why an English version exists
 
-The site is French-first: one new generative-AI tool a day, tested and documented in French, since February 2023. The English version is a **translation layer on top of that same content**, not a separate editorial line — every EN tool post has a French original, and the newsletter itself (Substack) has no English edition. The goal is to make the daily tool reviews and a handful of static pages available to an English-reading audience, at as close to zero manual effort per day as possible.
+The site is French-first: one new generative-AI tool a day, tested and documented in French, since February 2023. The English version is a **translation layer on top of that same content**, not a separate editorial line — every EN tool post has a French original, and the newsletter itself (Substack) has no English edition (nor does its audio version, the Substack podcast). The goal is to make the daily tool reviews and a handful of static pages available to an English-reading audience, at as close to zero manual effort per day as possible.
 
 ---
 
 ## What's translated, and how
 
 ### Daily tool posts (the core content)
-- **Mechanism**: fully automated. GitHub Actions workflow `translate.yml` (repo `uneiaparjour-en-translation`) runs nightly at 06:00 UTC, translates any new/changed FR tool post via Azure Translator, creates or updates the matching EN post via the WordPress REST API, links it to its FR original through Polylang (via a small companion plugin, "translation-bridge"), and publishes it automatically.
+- **Mechanism**: fully automated. GitHub Actions workflow `translate.yml` (repo `uneiaparjour-en-translation`) runs nightly at 06:00 UTC, translates any new/changed FR tool post via Azure Translator, creates or updates the matching EN post via the WordPress REST API, links it to its FR original through Polylang (via a small companion plugin, "translation-bridge"), and publishes it automatically (up to 250/run).
 - **Scope**: only posts present in the `base` tools dataset (see `agent.md`) — this deliberately excludes newsletter, Focus, and Lectures-partagées-type content, which have their own separate handling (below).
-- **Progress**: **1,280 tool posts translated** (as of 06/09/2026), all successful — the pipeline processes each day's new post plus a shrinking backlog of older ones, up to 200/run.
+- **Progress**: **1,373 tool posts translated** (as of 22/11/2026) — full coverage of the `base` dataset; the backlog is cleared and the pipeline now only handles each day's new post.
 - **State file**: `script/state/translations.json` in the `uneiaparjour-en-translation` repo — the single source of truth for which FR post maps to which EN post. Never edit by hand.
 - **Human-edit lock**: if a published EN post is manually edited in WordPress and its `_translation_locked` meta flag is set, the pipeline permanently skips re-translating it on future FR source changes.
 - **Known limitation**: EN post slugs often end in `-2` (e.g. `/en/wisdomplan-2/`) when the translated title happens to match the FR slug — WordPress's own collision handling, not something the pipeline works around (tried and confirmed not fixable, see `uneiaparjour-en-translation`'s own incident log).
 
 ### Focus articles (weekly editorial pieces)
-- **Separate pipeline**: `translate-focus.js` / `publish-focus.js` (same repo), running nightly at 07:00 UTC — deliberately split from the main pipeline because Focus posts (French category "Focus", id 50) are personal essays tied to each newsletter issue, not tool reviews, and must never enter the `base`/`base-en` tools dataset.
+- **Separate pipeline**: `translate-focus.js` / `publish-focus.js` (same repo), running weekly on Sundays at 07:00 UTC — deliberately split from the main pipeline because Focus posts (French category "Focus", id 50) are personal essays tied to each newsletter issue, not tool reviews, and must never enter the `base`/`base-en` tools dataset.
 - **Own state file**: `script/state/focus-translations.json` — never shared with the main pipeline's state.
 - **EN category**: "Focus" (slug `focus-en`), auto-created and linked to the FR "Focus" category via Polylang the first time the pipeline ran.
 - **Excluded from the EN homepage**: same as FR (see the `exclure_focus_accueil` hook in the theme's `functions.php` — it excludes both the FR category id 50 and the EN category id 1763).
-- **Backlog cleared**: 44/44 Focus articles translated and published (06/09/2026).
+- **Up to date**: 55/55 Focus articles translated and published (22/11/2026).
 
 ### Static pages (translated once, by hand)
 | Page | EN URL | Notes |
 |------|--------|-------|
 | Home | `/en/` | The blog index — same mechanism as any WordPress home page, just filtered to EN posts by Polylang |
+| Selection | `/en/selection-2/` | FR: "Sélection". Interactive wheel from repo `selection` (`selection-outils-en.html`), embedded as an iframe |
 | Newsletter | `/en/newsletter/` | FR: "Lettre". The Substack subscribe embed (`uneiaparjour.substack.com/embed`) needs no translation — it localizes itself to the visitor's own browser language automatically |
-| Readings | `/en/readings/` | FR: "Lectures partagées". Interface (repo `export-lectures-partagees`, file `index-en.html`) is translated; the actual 390 reading-list entries live in a one-time hand-translated `data-en.json` (see below) |
+| Readings | `/en/readings/` | FR: "Lectures partagées". Interface (repo `export-lectures-partagees`, file `index-en.html`) is translated; the actual 587 reading-list entries live in a hand-translated `data-en.json` (see below) |
+| Choosing a Tool | `/en/choosing-a-tool/` | FR: "Aide au choix". Repo `choix-outil-ia-en` |
+| The Unwritten | `/en/unwritten/` | FR: "Non-écrit". Native EN instruction (`INSTRUCTION_EN.md` in repo `non-ecrit`), not a machine translation |
+| Echo | `/en/echo-2/` | FR: "Écho". Adapted translation of the French game, repo `echo-en` |
 | About | `/en/about/` | FR: "À propos". Includes a translated infographic (`uneiaparjour-infographie-en.html`, this repo) |
-| Site Database | not yet menu-placed (matches FR, which also doesn't link it from a menu) | Points to `base-en` (GitHub, Hugging Face) instead of `base` |
-| Contact | `/en/contact-2/` | Slug collision with the FR original gave it the `-2` suffix, same limitation as tool posts |
+| Site Database | not in any menu (matches FR, where `/base/` is only reachable by direct URL) | Points to `base-en` (GitHub, Hugging Face) instead of `base` |
+| Contact | `/en/contact-2/` | Slug collision with the FR original gave it the `-2` suffix (same for `selection-2` and `echo-2`), same limitation as tool posts |
 | Legal Notice & Privacy | `/en/legal-notice-privacy/` | FR: "Mentions et confidentialité" |
 
-**Not yet translated**: Sélection, Aide au choix — neither exists in English yet, and neither is linked from the EN menus.
-**Deliberately never translated**: Écho (the narrative game about delegating to a machine) — an explicit editorial decision, not a backlog item.
-
 ### EN menu structure
-Unlike the FR site's 8-entry header menu, the EN header menu (`Header Menu #1 (EN placeholder)`) currently has 5 entries, in the same relative order as their FR counterparts: **Home → Newsletter → Readings → Focus → About**. The EN footer menu (`Footer Menu (EN placeholder)`) has 3: **Contact → Sitemap → Legal Notice & Privacy** — same order as the FR footer. When Sélection and Aide au choix eventually get translated, their menu items should be inserted at the same relative position as in the FR menu (positions 2 and 3).
+The EN header menu (`Header Menu #1 (EN placeholder)`) now mirrors the FR one, with 9 entries in the same order: **Home → Selection → Newsletter → Readings → Focus → Choosing a Tool → The Unwritten → Echo → About**. Categories are also reachable through a mega-menu grouped into 8 families: Access, Audio, Images, Info & Research, Learning, Presentation, Text & Documents, Web & Creation. The EN footer menu (`Footer Menu (EN placeholder)`) has 3 entries: **Contact → Sitemap → Legal Notice & Privacy** — same order as the FR footer.
 
 ### `data-en.json` (Lectures / Readings dataset)
-- A **one-time, hand-translated** copy of `data.json`'s 390 entries (repo `export-lectures-partagees`), covering only the `title` and `desc` fields — `url`/`date`/`letter`/`cat`/`source` are untouched.
-- **Not auto-updated.** Unlike everything else on this page, there is no pipeline behind it: the site owner maintains it by hand going forward, the same way the FR `data.json` is already maintained by hand each week.
+- A **hand-translated** copy of `data.json`'s entries (repo `export-lectures-partagees`, 587 entries as of 22/11/2026), covering only the `title` and `desc` fields — `url`/`date`/`letter`/`cat`/`source` are untouched.
+- **Not auto-updated.** Unlike everything else on this page, there is no pipeline behind it: the site owner keeps it in step with the FR `data.json` by hand each week.
 - Category labels are translated (e.g. `etudes`→Studies & Research, `securite`→Security & Disinformation); the app's own internal branding "Lectures partagées" is rendered as "Shared Reads" throughout the EN interface, including every export format's generated file content.
 
 ---
@@ -68,7 +69,9 @@ Mirrors `base` (see `agent.md`) but in English, generated **only from articles a
 | GitHub | `https://github.com/uneIAparjour/base-en` | ODS + CSV |
 | Hugging Face | `https://huggingface.co/datasets/uneIAparjour/base-en` | ODS + CSV |
 
-- **Workflow**: `nightly-update.yml`, 08:00 UTC (2h after the main FR `base` sync, 2h before the EN tool-translation pipeline's own run the following cycle — offset by convention, not a technical requirement).
+- **Size**: 1,371 tools (as of 22/11/2026), same 33 categories as the FR base (including FR / EU).
+
+- **Workflow**: `nightly-update.yml`, 08:00 UTC — 2h after the tool-translation pipeline (06:00 UTC), so each day's new EN post is already published when the sync runs.
 - **`force_sync`**: a `workflow_dispatch` boolean input that forces a Hugging Face push even when 0 new rows were found — a standing troubleshooting toggle, not meant for routine use.
 - Feeds the EN search overlay (see below) — never the FR one.
 
@@ -89,7 +92,7 @@ UI strings (category names, placeholders, buttons) are translated client-side vi
 - **Never hand-translate a tool post.** If an EN tool post is missing or stale, that's a pipeline issue (check `uneiaparjour-en-translation`'s Actions runs and `translations.json`), not something to fix by editing WordPress directly — a manual edit sets `_translation_locked` and permanently opts that post out of future automatic updates.
 - **Never add Focus or newsletter content to `base-en`.** Both are explicitly out of scope for that dataset — see the exclusion logic in `translate.js`'s own source comments if in doubt.
 - **`data-en.json` is manually maintained.** Don't expect it to reflect new FR `data.json` entries — that sync is intentionally not automated (see above).
-- **Menu placement mirrors FR structure**, but only for pages that are actually translated — never add a menu item pointing at a page that doesn't have an EN version yet.
+- **Menu placement mirrors FR structure** — every FR menu page now has an EN version; any new FR page should only get an EN menu item once its EN version exists, at the same position as in the FR menu.
 - **Internal links inside translated content**: point at the FR URL for any destination page not yet translated (graceful degradation), and get automatically rewritten to the EN URL once that destination is translated (see `rewriteInternalLinks` / the pipeline's slug map).
 - **Category and tag names**: a fixed, hand-verified FR→EN lookup table (`config/category-translations.json` in `uneiaparjour-en-translation`) is used ahead of machine translation — short, context-free category names translate unreliably via Azure otherwise.
 

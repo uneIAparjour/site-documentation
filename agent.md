@@ -23,16 +23,16 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 - Pas de clé d'API requise.
 
 ### Éthique et respect
-- Outils respectueux : pas d'affichage ni incitation à la génération de contenus violents, nudité, deepfakes ou fakenews
-- Refus des "humanizers" : transparence sur l'origine des contenus générés
-- Pas de publicité intrusive, et sauf exception mentionnée, sans publicité
+- Outils respectueux : pas d'affichage ni incitation à la génération de contenus violents, nudité, deepfakes ou fakenews.
+- Refus des "humanizers" : transparence sur l'origine des contenus générés.
+- Pas de publicité intrusive, et sauf exception mentionnée, sans publicité.
 
 ### Transparence et authenticité
-- Captures d'écran brutes, non retouchées : les erreurs restent visibles
-- Tests et articles du site réalisés et publiés par l'auteur
-- Lettre hebdomadaire co-écrite avec une IA, sous la responsabilité de l'auteur : méthode détaillée dans le focus de la lettre n°50
-- Aucune collaboration commerciale, aucun avantage personnel
-- Ensemble des contenus publiés sous licence CC BY 4.0
+- Captures d'écran brutes, non retouchées : les erreurs restent visibles.
+- Tests et articles du site réalisés et publiés par l'auteur.
+- Lettre hebdomadaire co-écrite avec une IA, sous la responsabilité de l'auteur : méthode détaillée dans le focus de la lettre n°50.
+- Aucune collaboration commerciale, aucun avantage personnel.
+- Ensemble des contenus publiés sous licence CC BY 4.0.
 
 ---
 
@@ -74,34 +74,41 @@ Proposer chaque jour une application d'IA générative gratuite ou freemium, tes
 - Articles individuels : `https://www.uneiaparjour.fr/{slug-outil}/`
 - Catégories : `https://www.uneiaparjour.fr/category/{slug-categorie}/`
 
-### Menu principal (8 entrées)
+### Menu principal (9 entrées)
 | Page | URL | Description |
 |------|-----|-------------|
-| **Accueil** | `/` | Fil des articles (1 outil IA par jour), paginé |
-| **Sélection** | `/selection/` | 60 outils choisis, classés en 10 catégories × 3 niveaux, PDF téléchargeable |
-| **Aide au choix** | `/aide/` | Arbre de décision interactif (v2 actuelle réalisée avec Claude Code) |
+| **Accueil** | `/` | Fil des articles (1 application IA par jour), paginé |
+| **Sélection** | `/selection/` | 60 applications choisies, classées en 10 catégories × 3 niveaux, roue interactive (dépôt `selection`) + PDF téléchargeable |
 | **Lettre** | `/lettre-dinfos/` | Présentation de la newsletter hebdomadaire + archives récentes |
 | **Lectures** | `/lectures-partagees/` | Compilation des ressources de veille de la newsletter |
 | **Focus** | `/category/focus-lettre/` | Articles de la catégorie Focus Lettre (exclus de l'accueil et de la base) |
+| **Aide au choix** | `/aide/` | Arbre de décision interactif (v2 actuelle réalisée avec Claude Code) |
+| **Non-écrit** | `/non-ecrit/` | Audit des implicites et angles morts d'une réponse de LLM (dépôt `non-ecrit`) |
 | **Écho** | `/echo/` | Jeu narratif sur la délégation à la machine |
 | **À propos** | `/a-propos/` | Principes éditoriaux, contact |
 
-### Page accessible via le footer
+Les catégories sont aussi accessibles par un méga-menu en 8 familles : Accès, Apprentissage, Audio, Image, Info et veille, Présentation, Texte et documents, Web et création.
+
+### Pages accessibles via le footer
 | Page | URL | Description |
 |------|-----|-------------|
-| **Base du site** | `/base/` | Téléchargement de la base de données (.ods) + liens GitHub et Hugging Face |
 | **Contact** | `/contact/` | Formulaire de contact |
-| **Mentions et confidentialité** | `/mentions-legales-et-confidentialite/` | Mentions légales |
 | **Plan du site** | `/sitemap_index.xml` | Sitemap XML |
+| **Mentions et confidentialité** | `/mentions-legales-et-confidentialite/` | Mentions légales |
+
+### Page hors menu
+| Page | URL | Description |
+|------|-----|-------------|
+| **Base du site** | `/base/` | Téléchargement de la base de données (.ods) + liens GitHub et Hugging Face — accessible par URL directe |
 
 ---
 
 ## Contenus et données
 
 ### Base des articles (contenu principal)
-- **1 295 outils** référencés (au 06/09/2026)
+- **1 373 applications** référencées (au 22/11/2026)
 - **Période** : 16/02/2023 → aujourd'hui (publication quotidienne)
-- **32 catégories** WordPress actives (+ archives)
+- **33 catégories** WordPress actives (dont archives)
 - **Format d'un article** : titre, URL de l'outil, description textuelle, captures d'écran, catégories, date de publication
 - **Structure de la base de données** : fichier .ods avec colonnes titre / description / URL de l'article / catégories (jusqu'à 6) / date de publication (JJ/MM/AAAA)  
 
@@ -125,30 +132,39 @@ En cas de mise à jour manuelle de l'ODS :
 
 ### Structure du dépôt GitHub `uneIAparjour/base`
 ```
-📁 .github/workflows/     ← Workflows : génération CSV + sync Hugging Face
+📁 .github/workflows/     ← nightly-update, generate-csv, sync-huggingface, update-readmes
 📁 versions/               ← Archive des 6 versions historiques pré-GitHub
 📄 .gitignore
 📄 LICENSE                 ← CC BY 4.0
 📄 README.md               ← Documentation du dépôt
 📄 agent.md                ← Ce fichier
 📄 base-uneiaparjour.csv   ← Généré automatiquement par le workflow
-📄 base-uneiaparjour.ods   ← Fichier source (mis à jour manuellement)
+📄 base-uneiaparjour.ods   ← Fichier source (mis à jour automatiquement chaque nuit)
 📄 huggingface-README.md   ← Dataset card poussée vers Hugging Face
+📄 update_ods.py           ← Script de mise à jour nocturne (RSS → ODS)
 ```
 
-### Catégories WordPress (32 actives + archives)
-actualités et fact-checking · application · automatisation · bande dessinée · chatbot · données · documents · éducation · histoires enfants · images · images 3D · navigateur · jeu vidéo · mindmap · musique · infographie · langues · LLM · open source · présentation · quiz et flashcards · qr code · recherche · sans compte · site web · texte · tutoriel · usage illimité · vidéo · voix · youtube · archives
+### Catégories WordPress (33, dont archives)
+actualités et fact-checking · application · automatisation · bande dessinée · chatbot · données · documents · éducation · FR / EU · histoires enfants · images · images 3D · navigateur · jeu vidéo · mindmap · musique · infographie · langues · LLM · open source · présentation · quiz et flashcards · qr code · recherche · sans compte · site web · texte · tutoriel · usage illimité · vidéo · voix · youtube · archives
 
 ### Sélection d'outils
-- **60 outils** sélectionnés (dernière version du 31/08/2026)
+- **60 applications** sélectionnées (dernière version du 28/08/2026)
 - **10 catégories** : éducation, chatbots, analyse de documents, présentation, quiz et flashcards, musique, voix, recherche, image et vidéo, génération d'applications et agents
 - **3 niveaux d'appropriation** par catégorie (6 outils × 10 catégories)
-- Disponible en version intégrée et PDF
+- Roue interactive HTML/SVG FR/EN (dépôt `selection`, GitHub Pages, intégrée en iframe), en remplacement de l'intégration Canva ; archives des versions précédentes ; PDF téléchargeable
 
 ### Aide au choix
 - Application interactive (arbre de décision)
 - v1 réalisée avec Lovable ; v2 (actuelle) réalisée avec Claude Code, application React/TypeScript (Vite)
 - Objectif : aider l'utilisateur à se positionner face aux choix lors de l'utilisation d'un outil IA
+- Version anglaise : dépôt `choix-outil-ia-en`
+
+### Non-écrit
+- Audit des implicites, sous-textes et angles morts d'une réponse produite par un LLM
+- Taxonomie de l'implicite en 6 catégories (d'après Arthur Sarazin) : connotation, sous-texte, implicature, de facto, détail d'implémentation, omission pure
+- Application Streamlit hébergée sur Render (région Frankfurt), modèle `openai/gpt-oss-120b` via l'API Albert : hébergement et inférence restent dans l'UE
+- Interface et instruction en français et en anglais (instruction anglaise rédigée nativement)
+- Code source : dépôt `uneIAparjour/non-ecrit`
 
 ---
 
@@ -157,8 +173,9 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ### Distribution
 - **Plateforme** : Substack (`https://uneiaparjour.substack.com/`)
 - **Fréquence** : hebdomadaire (samedi)
-- **Numéro actuel** : #44 (au 05/09/2026)
+- **Numéro actuel** : #55 (au 21/11/2026)
 - **Première lettre** : 6 septembre 2025
+- **Podcast** : version audio Substack des lettres (« Une IA par jour – Le podcast – Lettre N »)
 
 ### Structure récurrente de chaque lettre
 1. **Les outils de la semaine** — récapitulatif des outils publiés dans la semaine
@@ -175,7 +192,7 @@ actualités et fact-checking · application · automatisation · bande dessinée
 ## Page Lectures partagées (détail)
 
 ### Données
-- **Ressources** compilées des lettres d'info Substack
+- **587 ressources** compilées des lettres d'info Substack (jusqu'à la lettre #55)
 - Classement thématique en **10 catégories** (antéchronologique au sein de chaque catégorie)
 
 ### Catégories thématiques
@@ -202,9 +219,9 @@ Lien direct : Source
 - **Hébergement** : GitHub Pages (`https://uneiaparjour.github.io/export-lectures-partagees/`)
 - **Intégration dans le site** : iframe dans la page WordPress `/lectures-partagees/`
 - **Dépôt source** : `https://github.com/uneIAparjour/export-lectures-partagees`
-- **7 formats d'export** : HTML (bookmarks), OPML (Feedly), CSV, RDF (Zotero), XML, Markdown, BibTeX, JSON
+- **7 formats d'export** : OPML (Feedly), XML, Markdown, Bookmarks (HTML), BibTeX (Zotero), JSON, CSV
 - **Fonctionnalités** : filtrage par catégorie, recherche textuelle, sélection individuelle
-- **Données** : fichier `data.json` statique (mis à jour manuellement)
+- **Données** : fichier `data.json` statique (mis à jour manuellement) ; version anglaise : `data-en.json` + `index-en.html`
 - **Style** : fond sombre (#2D2D2D), accent orange (#E67E22), police Montserrat
 
 ---
@@ -213,18 +230,25 @@ Lien direct : Source
 
 ### Présence en ligne
 - **Site** : `https://www.uneiaparjour.fr` (WordPress)
-- **Newsletter** : `https://www.uneiaparjour.substack.com`
+- **Newsletter** : `https://www.uneiaparjour.substack.com`, avec sa version audio (podcast Substack)
 - **Réseaux sociaux** : X/Twitter, LinkedIn, Bluesky (via @bertrandformet + #uneIAparjour) et page Facebook (`https://www.facebook.com/uneIAparjour/`)
-- **GitHub** : `https://www.github.com/uneIAparjour` — 9 dépôts :
+- **GitHub** : `https://www.github.com/uneIAparjour` — principaux dépôts :
   - `base` : base de données du site en français (ODS + CSV, sync Hugging Face)
   - `base-en` : équivalent anglais de `base`, généré chaque nuit à partir des articles déjà traduits (sync Hugging Face)
   - `export-lectures-partagees` : outil d'export des lectures partagées (GitHub Pages, FR + interface EN)
   - `site-documentation` : documentation générale du site (agent.md, agent-en.md, infographie À propos FR/EN)
   - `choix-outil-ia` : application « Aide au choix » d'un outil IA (v2 actuelle réalisée avec Claude Code)
+  - `choix-outil-ia-en` : version anglaise de l'Aide au choix
+  - `selection` : roue interactive de la Sélection (FR/EN, GitHub Pages)
+  - `non-ecrit` : application Non-écrit (FR/EN)
+  - `echo` / `echo-en` : jeu narratif Écho (FR/EN), licence CC BY-NC 4.0
   - `rrs-to-ods` : script de conversion RSS vers ODS pour l'alimentation de la base
   - `recherche-outils` : moteur de recherche overlay (CSS, JS, snippet PHP), bilingue FR/EN
   - `uneiaparjour-en-translation` : pipeline de traduction FR→EN (voir section « Version anglaise » ci-dessous)
   - `carte-audience` : carte interactive de l'audience géographique (export Google Analytics), GitHub Pages
+  - `veille-agregateurs` : veille quotidienne sur ~39 répertoires d'outils IA, tri automatique, interface de triage (GitHub Pages, 18h heure de Paris)
+  - `alt-auto-wordpress` : 4 plugins WordPress de textes alt automatiques (images, vidéos, audios, à l'enregistrement)
+  - `how-llms-work` : traduction française de « How LLMs Work » (ynarwal)
 - **Hugging Face** : `https://huggingface.co/datasets/uneiaparjour/base` (FR) et `https://huggingface.co/datasets/uneIAparjour/base-en` (EN) — bases de données synchronisées depuis GitHub
 
 ---
@@ -234,10 +258,9 @@ Lien direct : Source
 Le site existe aussi en anglais sous `https://www.uneiaparjour.fr/en/`, géré via Polylang. Documentation détaillée dans `agent-en.md` (dépôt `site-documentation`) ; résumé ici :
 
 - **Articles quotidiens** : traduits automatiquement chaque nuit (pipeline `translate.js` du dépôt `uneiaparjour-en-translation` — Azure Translator + WordPress REST API), publiés le lendemain matin.
-- **Articles Focus** : pipeline séparé (`translate-focus.js`, même dépôt) car exclus du dataset base/base-en — ce sont des billets éditoriaux, pas des fiches d'outils.
-- **Pages statiques traduites** : Home, Newsletter (`/en/newsletter/`), Readings (`/en/readings/`), Focus, About — placées dans le menu EN dans le même ordre que le menu FR.
-- **Pages pas encore traduites** : Sélection, Aide au choix.
-- **Écho** : ne sera pas traduit (décision éditoriale).
+- **Articles Focus** : pipeline séparé et hebdomadaire (`translate-focus.js`, même dépôt, dimanche 07:00 UTC) car exclus du dataset base/base-en — ce sont des billets éditoriaux, pas des fiches d'outils.
+- **Pages traduites** : tout le menu — Home, Selection, Newsletter, Readings, Focus, Choosing a Tool, The Unwritten, Echo, About — dans le même ordre que le menu FR.
+- **Écho** : traduit (`/en/echo-2/`, dépôt `echo-en`) — adaptation de la version française.
 - **Dataset dédié** : `uneIAparjour/base-en`, généré à partir des seuls articles déjà traduits — le moteur de recherche EN s'appuie dessus, jamais sur `base`.
 
 ---
@@ -258,7 +281,7 @@ Le site existe aussi en anglais sous `https://www.uneiaparjour.fr/en/`, géré v
 - **Articles** : publication quotidienne, vérifier le site ou le RSS pour les nouveaux ajouts
 - **Newsletter** : hebdomadaire, chaque nouveau numéro peut contenir jusqu'à 10 nouvelles ressources pour les lectures partagées
 - **Sélection** : mise à jour périodique (mention « Version du JJ/MM/AAAA »), ~60 outils
-- **Base .ods** : reflet complet des articles du site. Mise à jour automatique sur GitHub → CSV et Hugging Face. La page WordPress (`/base/`) est mise à jour manuellement.
+- **Base .ods** : reflet complet des articles du site. Mise à jour automatique sur GitHub → CSV et Hugging Face. La page WordPress (`/base/`) affiche la date dynamiquement et pointe vers le fichier GitHub.
 - **Lectures partagées / data.json** : mis à jour manuellement dans le dépôt `export-lectures-partagees`
 
 ### Intégration technique
